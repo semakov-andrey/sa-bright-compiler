@@ -13,8 +13,6 @@
     }
   },
   "scripts": {
-    "install-compiler": "npx sa-bright-compiler",
-    "update-compiler": "npx sa-bright-compiler",
     "install-deps": "yarn",
     "check-deps": "npm-check-updates",
     "update-deps": "npm-check-updates -u",
