@@ -25,5 +25,5 @@ ncp(files, target, () => {
     JSON.parse(readFileSync(pj)), 
     JSON.parse(readFileSync(targetpj))
   );
-  writeFileSync(targetpj, JSON.stringify(targetjson));
+  writeFileSync(targetpj, JSON.stringify(targetjson, null, 2));
 });
