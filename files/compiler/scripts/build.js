@@ -9,7 +9,7 @@ import { isset, statsOptions } from '../utils/common.js';
 import { CssTypes } from '../utils/css-types.js';
 import { SvgIcons } from '../utils/svg-icons.js';
 
-const { config: { directories: dirs, isReact } } = packageJSON;
+const { config: { directories: dirs } } = packageJSON;
 
 if (fs.existsSync(dirs.production)) {
   del.sync(`${ dirs.production }/**/*`);

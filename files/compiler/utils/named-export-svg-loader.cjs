@@ -19,7 +19,7 @@ module.exports = function (code) {
   const newName = `Svg${ name }`;
 
   if (!icons.includes(newName)) {
-    icons = [ ...icons, newName ];
+    icons = [ ...icons, newName ].sort();
     const filePath = path.resolve(__dirname, `../../${ dirs.source }/utils/icons.d.ts`);
     fs.writeFileSync(filePath, getIconsDTS(icons));
   }

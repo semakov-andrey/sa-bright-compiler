@@ -10,6 +10,7 @@
     "noUncheckedIndexedAccess": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "baseUrl": "./",
     "lib": [
       "dom",
