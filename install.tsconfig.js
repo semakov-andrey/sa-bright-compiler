@@ -18,7 +18,7 @@ export const installTSConfig = () => {
   const json = deepmerge.all([
     tJSON,
     targetJSON
-  ]);
+  ], { arrayMerge });
 
   writeFileSync(targetj, JSON.stringify(json, null, 2) + '\r\n');
   unlinkSync(j);
