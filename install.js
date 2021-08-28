@@ -41,7 +41,7 @@ const packageJSONMerge = () => {
     ...json,
     dependencies: abcSorting(json.dependencies),
     devDependencies: abcSorting(json.devDependencies)
-  }, null, 2));
+  }, null, 2) + '\r\n');
   unlinkSync(pj);
 };
 
