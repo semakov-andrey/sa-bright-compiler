@@ -15,5 +15,4 @@ const target = projectPath('./');
 const gi = projectPath('.ggitignore');
 const targetgi = projectPath('.gitignore');
 
-ncp(files, target);
-renameSync(gi, targetgi);
+ncp(files, target, () => renameSync(gi, targetgi));
