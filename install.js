@@ -20,17 +20,32 @@ const targetgi = projectPath('.gitignore');
 const pj = projectPath('package.data.json');
 const targetpj = projectPath('package.json');
 
-ncp(files, target, () => {
-  renameSync(gi, targetgi);
+const arrayMerge = (destinationArray, sourceArray) => sourceArray;
+
+const abcSorting = (o) =>
+  Object.fromEntries(Object.entries(o).sort(([ keyA ], [ keyB ]) => keyA.localeCompare(keyB)));
+
+const packageJSONMerge = () => {
   if (!existsSync(targetpj)) return;
-  const targetjson = deepmerge.all([
+
+  const json = deepmerge.all([
     JSON.parse(readFileSync(targetpj)),
     { scripts: {
       'install-compiler': `npx sa-bright-compiler@${version}`,
       'update-compiler': 'npx sa-bright-compiler'
     } },
     JSON.parse(readFileSync(pj))
-  ]);
-  writeFileSync(targetpj, JSON.stringify(targetjson, null, 2));
+  ], { arrayMerge });
+  
+  writeFileSync(targetpj, JSON.stringify({
+    ...json,
+    dependencies: abcSorting(json.dependencies),
+    devDependencies: abcSorting(json.devDependencies)
+  }, null, 2));
   unlinkSync(pj);
+};
+
+ncp(files, target, () => {
+  renameSync(gi, targetgi);
+  packageJSONMerge();
 });
