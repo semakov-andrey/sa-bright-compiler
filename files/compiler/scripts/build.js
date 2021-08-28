@@ -18,7 +18,7 @@ if (fs.existsSync(dirs.production)) {
 const cssTypes = new CssTypes(true, dirs.source, 'css');
 await cssTypes.start();
 
-const svgIcons = new SvgIcons(dirs.source, 'interface/aassets/icons', 'utils/icons.d.ts');
+const svgIcons = new SvgIcons(dirs.source, 'interface/assets/icons', 'utils/icons.d.ts');
 await svgIcons.start();
 
 console.info('Building...');
