@@ -12,8 +12,8 @@ const projectPath = (folder) => resolve(projectFolder, folder);
 
 const files = packagePath('files');
 const target = projectPath('./');
-const gi = projectPath('./ggitignore');
-const targetgi = projectPath('./gitignore');
+const gi = projectPath('.ggitignore');
+const targetgi = projectPath('.gitignore');
 
 ncp(files, target);
 renameSync(gi, targetgi);
