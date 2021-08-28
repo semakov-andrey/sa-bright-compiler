@@ -1,14 +1,14 @@
-import { readFileSync, existsSync, writeFileSync, unlinkSync } from 'fs';
+import { readFileSync, existsSync, writeFileSync, unlinkSync, renameSync } from 'fs';
 import deepmerge from 'deepmerge';
 
-import { packagePath, projectPath } from './utils.js';
+import { projectPath, arrayMerge } from './utils.js';
 
 const mergeIgnores = (i, targeti) => {
   const TEXT = String(readFileSync(i)).trim().split('\n');
   const targetTEXT = String(readFileSync(targeti)).trim().split('\n');
   writeFileSync(
     targeti,
-    Array.from(new Set([ ...TEXT, ...targetTEXT ])).join('\n') + '\r\n'
+    arrayMerge(TEXT, targetTEXT).join('\n') + '\r\n'
   );
 }
 
