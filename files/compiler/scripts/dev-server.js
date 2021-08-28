@@ -28,7 +28,7 @@ server.use((req, res, next) => {
   next();
 });
 
-const compilerClient = webpack(await webpackConfig());
+const compilerClient = webpack(webpackConfig());
 server.use(webpackDevMiddleware(compilerClient, { stats: 'minimal' }));
 server.use(webpackHotMiddleware(compilerClient, { log: false }));
 

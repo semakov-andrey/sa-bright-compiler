@@ -22,7 +22,7 @@ const svgIcons = new SvgIcons(dirs.source, 'interface/aassets/icons', 'utils/ico
 await svgIcons.start();
 
 console.info('Building...');
-const compilerClient = webpack(await webpackConfig());
+const compilerClient = webpack(webpackConfig());
 
 compilerClient.run(async (error, stats) => {
   if (error instanceof Error) {
