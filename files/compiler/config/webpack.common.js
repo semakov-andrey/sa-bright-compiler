@@ -60,8 +60,7 @@ export const webpackConfigCommon = () => ({
     new ForkTsCheckerWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: `${ dirs.source }/sw.js`, to: 'sw.js' },
-        { from: `${ dirs.source }/articles`, to: 'articles' }
+        { from: `${ dirs.source }/sw.js`, to: 'sw.js' }
       ]
     }),
     new ServiceWorkerPlugin()

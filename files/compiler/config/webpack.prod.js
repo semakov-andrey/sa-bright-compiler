@@ -84,7 +84,7 @@ export const webpackConfig = () =>
       new MiniCssExtractPlugin({
         filename: `${ dirs.assets }[name].[contenthash:8].css`
       }),
-      new Favicon(`${ dirs.source }/interface/assets/favicon`, true),
+      new Favicon(`${ dirs.source }/interface/assets/favicons`, true),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production'),
         'VERSION': JSON.stringify(version)

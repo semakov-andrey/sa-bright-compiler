@@ -1,5 +1,3 @@
-import { extname } from 'path';
-
 import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
@@ -9,15 +7,15 @@ import packageJSON from '../../package.json';
 import { webpackConfig } from '../config/webpack.dev.js';
 import { CssTypes } from '../utils/css-types.js';
 import { logger } from '../utils/logger.js';
-import { TreeStructure } from '../utils/tree-structure.js';
+import { SvgIcons } from '../utils/svg-icons.js';
 
 const { config: { directories: dirs, devPort: port } } = packageJSON;
 
 const cssTypes = new CssTypes(false, dirs.source, 'css');
 await cssTypes.start();
 
-const treeStructure = new TreeStructure(`${ dirs.source }/articles`, false);
-await treeStructure.start();
+const svgIcons = new SvgIcons(dirs.source, 'interface/assets/icons', 'utils/icons.d.ts');
+await svgIcons.start();
 
 logger('dev server', port)();
 
@@ -27,13 +25,10 @@ server.use((req, res, next) => {
   if (!/(\.(?!html)\w+$|__webpack.*|index\.css)/u.test(req.url)) {
     req.url = '/';
   }
-  if (req.url.includes('articles') && extname(req.url) === '.md' && req.get('X-Fetch') !== 'true') {
-    req.url = '/';
-  }
   next();
 });
 
-const compilerClient = webpack(webpackConfig());
+const compilerClient = webpack(await webpackConfig());
 server.use(webpackDevMiddleware(compilerClient, { stats: 'minimal' }));
 server.use(webpackHotMiddleware(compilerClient, { log: false }));
 

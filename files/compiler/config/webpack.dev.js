@@ -89,7 +89,7 @@ export const webpackConfig = () =>
         filename: `${ dirs.assets }[name].css`
       }),
       new webpack.HotModuleReplacementPlugin(),
-      new Favicon(`${ dirs.source }/interface/assets/favicon`, false),
+      new Favicon(`${ dirs.source }/interface/assets/favicons`, false),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('development'),
         'VERSION': JSON.stringify(version)
