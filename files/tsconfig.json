@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noUncheckedIndexedAccess": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016",
+      "es2017",
+      "es2018",
+      "es2019",
+      "es2020",
+      "esnext",
+      "WebWorker"
+    ],
+    "paths": {
+      "entities/*": [ "./src/entities/*" ],
+      "domain/*": [ "./src/domain/*" ],
+      "interface/*": [ "./src/interface/*" ],
+      "store/*": [ "./src/store/*" ],
+      "utils/*": [ "./src/utils/*" ]
+    }
+  },
+  "exclude": [
+    "./node_modules"
+  ],
+  "include": [
+    "**/*",
+    ".eslintrc.cjs"
+  ]
+}
