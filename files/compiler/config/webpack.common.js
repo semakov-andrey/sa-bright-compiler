@@ -1,3 +1,5 @@
+import { existsSync } from 'fs';
+
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
@@ -10,6 +12,8 @@ const { config: { directories: dirs } } = packageJSON;
 if (dirs.assets !== '') {
   dirs.assets += '/';
 }
+
+const swPath = `${ dirs.source }/sw.js`;
 
 export const webpackConfigCommon = () => ({
   target: 'web',
@@ -58,12 +62,16 @@ export const webpackConfigCommon = () => ({
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: `${ dirs.source }/sw.js`, to: 'sw.js' }
+    ...existsSync(swPath)
+      ? [
+        new CopyWebpackPlugin({
+          patterns: [
+            { from: swPath, to: 'sw.js' }
+          ]
+        }),
+        new ServiceWorkerPlugin()
       ]
-    }),
-    new ServiceWorkerPlugin()
+      : []
   ],
   resolve: {
     extensions: [
