@@ -31,7 +31,7 @@ export const installPackageJSON = () => {
         'update-compiler': 'npx sa-bright-compiler'
       },
       dependencies: tJSON.dependencies,
-      devDependencies: targetJSON.devDependencies
+      devDependencies: tJSON.devDependencies
     }
   ], { arrayMerge });
   
