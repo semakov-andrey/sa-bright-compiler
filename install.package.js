@@ -20,7 +20,9 @@ export const installPackageJSON = () => {
   const tJSON = JSON.parse(readFileSync(j));
   const targetJSON = JSON.parse(readFileSync(targetj));
 
+  // targetJSON listed 2 times for saving sort of project properties
   const json = deepmerge.all([
+    targetJSON,
     tJSON,
     targetJSON,
     {
