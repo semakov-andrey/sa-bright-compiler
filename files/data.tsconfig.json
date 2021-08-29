@@ -12,7 +12,6 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "useUnknownInCatchVariables": true,
-    "exactOptionalPropertyTypes": true,
     "baseUrl": "./",
     "lib": [
       "dom",
