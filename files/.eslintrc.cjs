@@ -150,7 +150,6 @@ module.exports = {
     'no-shadow-restricted-names': 'error',
     'no-undef': 'error',
     'no-undef-init': 'error',
-    'no-undefined': 'error',
     'no-unused-vars': [
       'error',
       {
@@ -204,7 +203,7 @@ module.exports = {
     ],
     'lines-between-class-members': [ 'error', 'always' ],
     'max-depth': [ 'error', { max: 4 } ],
-    'max-len': [ 'error', { code: 120 } ],
+    'max-len': [ 'error', { code: 120, ignoreTemplateLiterals: true, ignoreRegExpLiterals: true } ],
     'max-nested-callbacks': [ 'error', { max: 4 } ],
     'max-params': [ 'error', { max: 4 } ],
     'max-statements-per-line': 'error',
@@ -276,7 +275,6 @@ module.exports = {
     'object-shorthand': 'error',
     'prefer-arrow-callback': 'error',
     'prefer-const': [ 'error', { destructuring: 'all', ignoreReadBeforeAssign: true } ],
-    'prefer-destructuring': 'error',
     'prefer-numeric-literals': 'error',
     'prefer-rest-params': 'error',
     'prefer-spread': 'error',
