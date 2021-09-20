@@ -2,6 +2,7 @@
   "name": "sa-bright-compiler",
   "version": "1.30.0",
   "bin": "./install.js",
+  "license": "ISC",
   "keywords": [
     "node",
     "npm",
