@@ -16,6 +16,7 @@ module.exports = {
     'rulesdir',
     'import',
     'react',
+    'jam3',
     '@typescript-eslint'
   ],
   settings: {
@@ -329,11 +330,11 @@ module.exports = {
     {
       files: [ '*.jsx', '*.tsx' ],
       rules: {
+        'jam3/no-sanitizer-with-danger': 'error',
         'react/button-has-type': 'error',
         'react/no-access-state-in-setstate': 'error',
         'react/no-array-index-key': 'error',
         'react/no-children-prop': 'error',
-        'react/no-danger': 'error',
         'react/no-danger-with-children': 'error',
         'react/no-deprecated': 'error',
         'react/no-did-mount-set-state': 'error',
