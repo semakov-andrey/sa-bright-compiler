@@ -8,14 +8,14 @@ import { imageSize } from 'image-size';
 
 import packageJSON from '../../package.json';
 
-const { name, shortName, themeColor, config: { directories: dirs } } = packageJSON;
+const { name, shortName, themeColorLight, themeColorDark, config: { directories: dirs } } = packageJSON;
 
 export class Favicon {
   constructor(assets, hash) {
     this.manifest = {
       name,
       short_name: shortName,
-      theme_color: themeColor,
+      theme_color: themeColorLight,
       background_color: '#ffffff',
       start_url: '/',
       display: 'standalone'
@@ -128,7 +128,8 @@ export class Favicon {
         .beforeEmit
         .tapAsync('favicon', (htmlPluginData, callback) => {
           html.push(`<link href="/${ manifestURL }" rel="manifest">`);
-          html.push(`<meta name="theme-color" content="${ themeColor }">`);
+          html.push(`<meta name="theme-color" media="(prefers-color-scheme: light)" content="${ themeColorLight }">`);
+          html.push(`<meta name="theme-color" media="(prefers-color-scheme: dark)" content="${ themeColorDark }">`);
           html.sort((a, b) => {
             if (typeof a[1] === 'undefined' || typeof b[1] === 'undefined') {
               return 0;
