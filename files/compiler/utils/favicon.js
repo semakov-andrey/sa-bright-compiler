@@ -137,9 +137,7 @@ export class Favicon {
 
             return a[1] > b[1] ? -1 : a[1] < b[1] ? 1 : 0;
           });
-          htmlPluginData.html = !this.hash
-            ? htmlPluginData.html.replace(/(<\/head>)/iu, `${ html.join('') }$1`)
-            : htmlPluginData.html.replace(/(<section class=app)/iu, `${ html.join('') }$1`);
+          htmlPluginData.html = htmlPluginData.html.replace(/(<\/head>)/iu, `${ html.join('') }$1`);
           callback(null, htmlPluginData);
         });
     });
