@@ -219,7 +219,7 @@ module.exports = {
     'no-new-object': 'error',
     'no-tabs': 'error',
     'no-trailing-spaces': 'error',
-    'no-underscore-dangle': [ 'error', { allow: '_handle' } ],
+    'no-underscore-dangle': [ 'error', { allow: [ '_handle' ] } ],
     'no-unneeded-ternary': 'error',
     'no-whitespace-before-property': 'error',
     'nonblock-statement-body-position': [ 'error', 'beside' ],
