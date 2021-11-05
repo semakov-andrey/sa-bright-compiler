@@ -12,6 +12,7 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "useUnknownInCatchVariables": true,
+    "importsNotUsedAsValues": "error",
     "baseUrl": "./",
     "lib": [
       "dom",
