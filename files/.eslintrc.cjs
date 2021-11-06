@@ -204,7 +204,7 @@ module.exports = {
     ],
     'lines-between-class-members': [ 'error', 'always' ],
     'max-depth': [ 'error', { max: 4 } ],
-    'max-len': [ 'error', { code: 150, ignoreTemplateLiterals: true, ignoreRegExpLiterals: true } ],
+    'max-len': [ 'error', { code: 150, ignoreStrings: true, ignoreTemplateLiterals: true, ignoreRegExpLiterals: true } ],
     'max-nested-callbacks': [ 'error', { max: 4 } ],
     'max-params': [ 'error', { max: 4 } ],
     'max-statements-per-line': 'error',
