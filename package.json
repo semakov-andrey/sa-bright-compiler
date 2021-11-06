@@ -1,6 +1,6 @@
 {
   "name": "sa-bright-compiler",
-  "version": "1.32.3",
+  "version": "1.32.4",
   "bin": "./install.js",
   "license": "ISC",
   "keywords": [
